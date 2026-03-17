@@ -1,5 +1,6 @@
 from app.core.llm_client import call_llm_system
 import json
+from typing import List,Dict
 
 def column_prune_agent(user_question: str, tables: List[str], schema_texts: Dict[str,str]) -> Dict[str,List[str]]:
     """Return a dict table -> columns to keep (pruned), using the LLM to pick most relevant columns."""

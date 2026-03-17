@@ -1,4 +1,5 @@
 from config import DB_CONFIG
+from typing import Dict
 
 def extract_schema_text(conn) -> Dict[str, str]:
     """Extract table schemas from INFORMATION_SCHEMA and return a mapping table_name -> textual schema."""

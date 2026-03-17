@@ -3,6 +3,9 @@ import os
 
 os.getenv
 
+METADATA_STORE = "/app/querygpt_faiss.index"
+FAISS_INDEX_PATH = "/app/schema_metadata.json"
+
 DB_CONFIG = {
     "host": "localhost",
     "port": 3306,

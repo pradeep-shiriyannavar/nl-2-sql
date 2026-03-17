@@ -1,15 +1,14 @@
-# app/routes.py
 from flask import Blueprint, request, jsonify, render_template
 from app.core.pipeline import run_querygpt_flow
 from app.core.embedder import Embedder
 from app.core.faiss_index import setup_index_and_metadata
 from app.db.connection import get_mysql_connection
-from config import Config
+from config import DB_CONFIG
 
 main = Blueprint("main", __name__)
 
 # Initialize once at startup
-conn       = get_mysql_connection(Config.DB_CONFIG)
+conn       = get_mysql_connection(DB_CONFIG)
 embedder   = Embedder()
 index, docs, schema_texts = setup_index_and_metadata(conn, embedder, force_rebuild=True)
 
@@ -17,7 +16,6 @@ index, docs, schema_texts = setup_index_and_metadata(conn, embedder, force_rebui
 @main.route("/")
 def home():
     return render_template("index.html")
-
 
 @main.route("/query", methods=["POST"])
 def query():

@@ -1,4 +1,5 @@
 from app.core.llm_client import call_llm_system
+from typing import List, Dict
 
 def sql_generation_agent(user_question: str, intent: str, tables: List[str], pruned_columns: Dict[str,List[str]], schema_texts: Dict[str,str]) -> str:
     system = (

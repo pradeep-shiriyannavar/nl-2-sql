@@ -1,3 +1,11 @@
+flask
 pandas
-faiss
+mysql-connector-python
+sqlalchemy
 openai
+faiss-cpu
+numpy
+tqdm
+python-dotenv
+pytest
+pytest-cov

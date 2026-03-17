@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QueryGPT — NL to SQL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+
+    <!-- Background grid -->
+    <div class="bg-grid"></div>
+
+    <div class="shell">
+
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text">Query<em>GPT</em></span>
+            </div>
+            <div class="badge">NL → SQL · Blockchain EHR</div>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <h1>Ask your database<br /><span class="accent">in plain English.</span></h1>
+            <p class="sub">Powered by GPT-4o · FAISS semantic search · Multi-agent pipeline</p>
+        </section>
+
+        <!-- Input -->
+        <div class="input-card">
+            <div class="input-row">
+                <span class="prompt-symbol">▶</span>
+                <input id="questionInput" type="text" placeholder="e.g. Who uploaded behavioural.txt?"
+                    autocomplete="off" />
+                <button id="askBtn" onclick="sendQuery()">
+                    <span id="btnText">Ask</span>
+                    <span id="btnSpinner" class="spinner hidden"></span>
+                </button>
+            </div>
+
+            <!-- Quick examples -->
+            <div class="examples">
+                <span class="ex-label">Try:</span>
+                <button class="chip" onclick="setQ('How many users are in the database?')">User count</button>
+                <button class="chip" onclick="setQ('List all users with Bengaluru city.')">Bengaluru users</button>
+                <button class="chip" onclick="setQ('Show admin\'s email address')">Admin email</button>
+                <button class="chip" onclick="setQ('Who are all the file owners?')">File owners</button>
+            </div>
+        </div>
+
+        <!-- Error -->
+        <div id="errorBox" class="error-box hidden"></div>
+
+        <!-- Result -->
+        <div id="resultSection" class="result-section hidden">
+
+            <!-- Meta pills -->
+            <div class="meta-row">
+                <span class="meta-pill intent" id="intentPill"></span>
+                <span class="meta-pill tables" id="tablesPill"></span>
+                <span class="meta-pill count" id="countPill"></span>
+            </div>
+
+            <!-- SQL block -->
+            <div class="sql-block">
+                <div class="sql-header">
+                    <span class="sql-label">Generated SQL</span>
+                    <button class="copy-btn" onclick="copySQL()">Copy</button>
+                </div>
+                <pre id="sqlOutput"></pre>
+            </div>
+
+            <!-- Data table -->
+            <div class="table-wrap">
+                <table id="resultTable">
+                    <thead id="tableHead"></thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

@@ -9,7 +9,8 @@ services:
     env_file:
       - .env
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: unless-stopped
 
   db:
@@ -17,11 +18,18 @@ services:
     container_name: nl2sql-db
     environment:
       MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: db_blockchain_ehr_test
+      MYSQL_DATABASE: db_food_management
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test:
+        ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-padmin"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     restart: unless-stopped
 
 volumes:

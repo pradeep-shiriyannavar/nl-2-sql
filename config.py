@@ -7,11 +7,11 @@ METADATA_STORE = "/app/querygpt_faiss.index"
 FAISS_INDEX_PATH = "/app/schema_metadata.json"
 
 DB_CONFIG = {
-    "host": "localhost",
+    "host": "db",
     "port": 3306,
     "user": "root",
     "password": "admin",
-    "database": "db_blockchain_ehr_test"
+    "database": "db_food_management"
 }
 
 AZURE_EMBED_MODEL = "text-embedding-3-small"

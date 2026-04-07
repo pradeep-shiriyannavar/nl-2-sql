@@ -31,4 +31,3 @@ Table Agent → Column Prune Agent → SQL Generation → MySQL
 
 ## Quick Start
 docker-compose up --build
-# Visit http://localhost:5000

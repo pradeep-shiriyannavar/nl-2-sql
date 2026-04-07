@@ -1,4 +1,4 @@
-# 🌾 FoodQuery AI — Natural Language to SQL
+# 🌾 FoodQuery AI - Natural Language to SQL
 
 > Ask your food management database in plain English.
 > GPT-4o · FAISS · Multi-agent pipeline · Flask · Docker
